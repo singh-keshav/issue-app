@@ -1,0 +1,21 @@
+.form-list {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.form-list-title {
+}
+.form-list-description {
+}
+.form-list-priority {
+}
+
+input {
+  display: flex;
+}
+
+p,
+label {
+  color: rgb(156, 156, 156);
+}

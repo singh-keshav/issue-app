@@ -1,0 +1,19 @@
+<p>issue-list works!</p>
+
+<div class="issuelist-container">
+  <ul class="issuelist-ul">
+    <li
+      class="issuerow"
+      *ngFor="let issue of issues"
+      (click)="showIssue(issue)"
+    >
+      <div class="issue_title">{{ issue.title }}</div>
+      <div class="issue_description">{{ issue.description }}</div>
+      <div class="issue_priority">{{ issue.priority }}</div>
+      <div class="issue_updatedOn">{{ issue.updatedOn }}</div>
+      <div class="issue_createdOn">{{ issue.createdOn }}</div>
+
+      <button (click)="deleteIssue($event, issue)">delete</button>
+    </li>
+  </ul>
+</div>

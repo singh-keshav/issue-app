@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  background-color: red;
+}
+.issue-list-container {
+  background-color: yellow;
+  flex: 1 1 70%;
+}
+.issue-form-contaner {
+  background-color: whitesmoke;
+  flex: 0 0 30%;
+}
