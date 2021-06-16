@@ -21,10 +21,12 @@ export class AppComponent implements OnInit {
   }
 
   toggleModal() {
-    this.modalClass =
-      this.modalClass === 'hide'
-        ? (this.modalClass = '')
-        : (this.modalClass = 'hide');
+    if (this.modalClass === 'hide') {
+      this.modalClass = '';
+    } else {
+      this.modalClass = 'hide';
+      this.issue = undefined;
+    }
   }
 
   deleteIssue(id: Number) {
@@ -49,10 +51,13 @@ export class AppComponent implements OnInit {
 
   updateIssue(issue: Issue) {
     console.log(issue);
-    this.issueService.upDateIssue(issue).subscribe();
+    this.issueService
+      .upDateIssue(issue)
+      .subscribe((issues) => (this.issues = issues));
     console.log('inside update');
 
-    this.issueService.getIssues().subscribe((issues) => (this.issues = issues));
+    // this.issueService.getIssues().subscribe((issues) => (this.issues = issues));
+    this.issue = undefined;
     // this.issues = this.issues.map((_issue) => {
     //   return _issue.id === issue.id ? issue : _issue;
     // });

@@ -32,11 +32,11 @@ export class IssueService {
       .pipe(catchError(this.handleError<Issue>('getHero id=${id}')));
   }
 
-  upDateIssue(data: Issue): Observable<Issue> {
+  upDateIssue(data: Issue): Observable<Issue[]> {
     const IssueUrl = `${this.URL}/${data.id}`;
     return this.http
-      .put<Issue>(IssueUrl, data, this.httpOptions)
-      .pipe(catchError(this.handleError<Issue>('createIssue')));
+      .put<Issue[]>(IssueUrl, data, this.httpOptions)
+      .pipe(catchError(this.handleError<Issue[]>('createIssue')));
   }
 
   deleteIssue(id: any): Observable<Issue> {

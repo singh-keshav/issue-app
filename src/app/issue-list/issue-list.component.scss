@@ -1,10 +1,14 @@
 .issuelist-container {
+  height: 100%;
 }
 
 #headingIssue {
   text-align: center;
+  color: teal;
 }
 .issuelist-ul {
+  height: 88%;
+  overflow-y: auto;
 }
 .issue-row {
   display: flex;
@@ -15,11 +19,14 @@
   align-items: center;
 
   &:hover {
-    transform: scale(1.01);
+    transform: scale(1.02);
   }
 }
 .issue-row-field_child {
   flex: 1 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 0px 5px;
 }
 
 .issue_title {
