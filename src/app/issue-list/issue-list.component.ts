@@ -16,6 +16,7 @@ export class IssueListComponent {
     event.stopPropagation();
     this.deleteIssueEvent.emit(issue.id);
   }
+
   showIssue(issue: Issue) {
     console.log(issue);
     this.showDetailEvent.emit(issue);

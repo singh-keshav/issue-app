@@ -44,8 +44,10 @@ export class IssueFormComponent {
     description: '',
     projectName: '',
     priority: 0,
-    updatedOn: '',
-    createdOn: '',
+    timestamps: {
+      updatedOn: '',
+      createdOn: '',
+    },
   });
 
   private reset() {

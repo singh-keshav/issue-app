@@ -4,6 +4,8 @@ interface Issue {
   description: string;
   projectName: string;
   priority: number;
-  createdOn?: any;
-  updatedOn?: any;
+  timestamps?: {
+    createdOn?: string;
+    updatedOn?: string;
+  };
 }

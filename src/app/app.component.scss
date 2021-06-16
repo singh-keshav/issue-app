@@ -53,10 +53,24 @@ $small: 900px;
   position: absolute;
   bottom: 10px;
   right: 10px;
+  width: 50px;
+  height: 50px;
+  background: #0d6efd;
+  color: #fff;
+  border-radius: 50%;
+
+  svg {
+    transform: rotate(0deg);
+    transition: 150ms linear;
+  }
+
+  &:hover svg {
+    transform: rotate(180deg);
+  }
 }
 
 .create_issue_toggle_button_svg {
-  color: red;
+  color: #0d6efd;
   &:hover {
     transform: rotate(180deg);
     transition-duration: 500ms;

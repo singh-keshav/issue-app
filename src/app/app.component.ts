@@ -58,14 +58,18 @@ export class AppComponent implements OnInit {
   }
 
   createIssue(issue: Issue) {
-    this.issueService.createIssue(issue).subscribe();
-    this.issueService.getIssues().subscribe((issues) => (this.issues = issues));
+    this.issueService
+      .createIssue(issue)
+      .subscribe((issue) => (this.issues = [issue, ...this.issues]));
   }
 
   updateIssue(issue: Issue) {
-    this.issueService
-      .upDateIssue(issue)
-      .subscribe((issues) => (this.issues = issues));
+    this.issueService.upDateIssue(issue).subscribe(
+      (issue) =>
+        (this.issues = this.issues.map((_issue) => {
+          return _issue.id === issue.id ? issue : _issue;
+        }))
+    );
     this.issue = undefined;
   }
 }
