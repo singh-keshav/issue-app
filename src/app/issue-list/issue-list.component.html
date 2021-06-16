@@ -3,12 +3,13 @@
   <ul class="issuelist-ul">
     <li class="issue" *ngFor="let issue of issues" (click)="showIssue(issue)">
       <div class="issue__row">
-        <div class="badge rounded-pill bg-success">
-          DATE: {{ issue.timestamps?.createdOn }}
-        </div>
         <div class="badge rounded-pill bg-primary issue__project">
           PROJECT: {{ issue.projectName }}
         </div>
+        <div class="badge rounded-pill bg-warning text-dark">
+          PRIORITY: {{ issue.priority }}
+        </div>
+
         <button
           class="issue__delete btn btn-outline-danger"
           (click)="deleteIssue($event, issue)"
@@ -29,7 +30,14 @@
         </button>
       </div>
       <div class="issue__title">{{ issue.title }}</div>
+
       <p class="issue__description">{{ issue.description }}</p>
+      <div class="issue__timestamp">
+        Created on: {{ issue.timestamps?.createdOn }}
+      </div>
+      <div class="issue__timestamp">
+        Last updated on:{{ issue.timestamps?.updatedOn }}
+      </div>
     </li>
   </ul>
 </div>

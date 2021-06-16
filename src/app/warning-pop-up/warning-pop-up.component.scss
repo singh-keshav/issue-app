@@ -2,9 +2,20 @@
   background-color: white;
   border-radius: 6px;
   padding: 20px;
+
+  @media screen and (max-width: 600px) {
+    width: 70vw;
+  }
 }
+
+.actions {
+  display: flex;
+}
+
 .yesbutton {
+  margin-left: auto;
   margin-right: 10px;
 }
+
 .nobutton {
 }
