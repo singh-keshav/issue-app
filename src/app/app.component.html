@@ -1,25 +1,5 @@
-<!-- <div class="container">
-  <div class="issue-list-container">
-    <app-issue-list
-      [issues]="issues"
-      (deleteIssueEvent)="deleteIssue($event)"
-      (showDetailEvent)="showDetailEvent($event)"
-    ></app-issue-list>
-  </div>
-  <div class="issue-form-contaner">
-    <app-issue-form
-      class=""
-      [oldIssue]="issue"
-      (oldIssueUpdatedEvent)="updateIssue($event)"
-      (newIssueCreatedEvent)="createIssue($event)"
-    ></app-issue-form>
-  </div>
-</div> -->
-
-<!-- <div class="container"></div> -->
-
-<div id="{{ modalClass }}" class="hider"></div>
-<div id="{{ modalClass }}" class="popup_box">
+<div class="hider {{ modalClass }}"></div>
+<div class="popup_box {{ modalClass }}">
   <div class="issue-form-contaner">
     <app-issue-form
       class=""
@@ -30,11 +10,18 @@
     ></app-issue-form>
   </div>
 </div>
+<div class="hider {{ modalWarning }}"></div>
+<div class="popup_box {{ modalWarning }}">
+  <app-warning-pop-up
+    class=""
+    (deleteOptionEvent)="deleteOption($event)"
+  ></app-warning-pop-up>
+</div>
 <div id="content">
   <div class="issue-list-container">
     <app-issue-list
       [issues]="issues"
-      (deleteIssueEvent)="deleteIssue($event)"
+      (deleteIssueEvent)="deleteRequest($event)"
       (showDetailEvent)="showDetailEvent($event)"
     ></app-issue-list>
     <button (click)="toggleModal()" class="create_issue_toggle_button">

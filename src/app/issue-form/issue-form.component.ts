@@ -1,11 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IssueService } from '../issue.service';
@@ -49,6 +42,7 @@ export class IssueFormComponent {
     id: '',
     title: '',
     description: '',
+    projectName: '',
     priority: 0,
     updatedOn: '',
     createdOn: '',

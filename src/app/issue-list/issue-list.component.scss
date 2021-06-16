@@ -17,6 +17,7 @@
   border-radius: 4px;
   margin: 10px 10px;
   align-items: center;
+  cursor: pointer;
 
   &:hover {
     transform: scale(1.02);
@@ -29,13 +30,13 @@
   padding: 0px 5px;
 }
 
-.issue_title {
-}
-.issue_description {
-}
-.issue_priority {
-}
-.issue_updatedOn {
-}
-.issue_createdOn {
-}
+// .issue_title {
+// }
+// .issue_description {
+// }
+// .issue_priority {
+// }
+// .issue_updatedOn {
+// }
+// .issue_createdOn {
+// }

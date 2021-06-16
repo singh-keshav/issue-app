@@ -7,9 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IssueFormComponent } from './issue-form/issue-form.component';
 import { IssueListComponent } from './issue-list/issue-list.component';
+import { WarningPopUpComponent } from './warning-pop-up/warning-pop-up.component';
 
 @NgModule({
-  declarations: [AppComponent, IssueFormComponent, IssueListComponent],
+  declarations: [AppComponent, IssueFormComponent, IssueListComponent, WarningPopUpComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

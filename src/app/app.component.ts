@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { throwIfEmpty } from 'rxjs/operators';
 import { IssueService } from './issue.service';
 
 @Component({
@@ -12,7 +11,11 @@ export class AppComponent implements OnInit {
   issues: Issue[] = [];
   isSelected = false;
   issue?: Issue = undefined;
+
   modalClass = 'hide';
+  modalWarning = 'hide';
+
+  deleteRquestId?: Number | String = undefined;
 
   constructor(private issueService: IssueService) {}
 
@@ -29,37 +32,40 @@ export class AppComponent implements OnInit {
     }
   }
 
-  deleteIssue(id: Number) {
+  deleteOption(opt: string) {
+    this.modalWarning = 'hide';
+    if (opt === 'YES') {
+      if (this.deleteRquestId) {
+        this.deleteIssue(this.deleteRquestId);
+        this.deleteRquestId = undefined;
+      }
+    }
+  }
+
+  deleteRequest(id: Number) {
+    this.deleteRquestId = id;
+    this.modalWarning = '';
+  }
+
+  deleteIssue(id: Number | String) {
     this.issueService.deleteIssue(id).subscribe();
     this.issues = this.issues.filter((issue) => issue.id !== id);
-    console.log(id);
-    console.log('inside delete');
   }
 
   showDetailEvent(issue: Issue) {
-    console.log(issue);
     this.issue = issue;
     this.toggleModal();
   }
 
   createIssue(issue: Issue) {
     this.issueService.createIssue(issue).subscribe();
-    console.log('inside create');
     this.issueService.getIssues().subscribe((issues) => (this.issues = issues));
-    // this.issues = [issue, ...this.issues];
   }
 
   updateIssue(issue: Issue) {
-    console.log(issue);
     this.issueService
       .upDateIssue(issue)
       .subscribe((issues) => (this.issues = issues));
-    console.log('inside update');
-
-    // this.issueService.getIssues().subscribe((issues) => (this.issues = issues));
     this.issue = undefined;
-    // this.issues = this.issues.map((_issue) => {
-    //   return _issue.id === issue.id ? issue : _issue;
-    // });
   }
 }

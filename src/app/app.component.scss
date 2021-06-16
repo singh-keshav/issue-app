@@ -1,10 +1,5 @@
-// .container {
-//   // display: flex;
-//   // background-color: red;
-// }
-
-$small: 500px;
-$medium: 900px;
+$small: 900px;
+// $medium: 900px;
 
 .issue-list-container {
   background-color: white;
@@ -30,34 +25,24 @@ $medium: 900px;
   max-width: 90vw;
 }
 
-#hide {
-  display: none;
-}
-
 .hider {
   position: fixed;
   top: 0%;
   left: 0%;
   width: 1600px;
   height: 2000px;
-  margin-top: 0px; /*set to a negative number 1/2 of your height*/
-  margin-left: 0px; /*set to a negative number 1/2 of your width*/
-  /*
-        z- index must be lower than pop up box
-       */
+  margin-top: 0px;
+  margin-left: 0px;
   z-index: 99;
   background-color: Black;
-  //for transparency
   opacity: 0.6;
 }
 
 .popup_box {
   position: absolute;
-  // top: 25%;
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
-
   z-index: 100;
   max-width: calc(100% - 10px);
 }
@@ -76,4 +61,8 @@ $medium: 900px;
     transform: rotate(180deg);
     transition-duration: 500ms;
   }
+}
+
+.hide {
+  display: none;
 }

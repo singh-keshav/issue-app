@@ -5,6 +5,15 @@
     (click)="closeModal()"
   ></button>
   <form class="" [formGroup]="issueForm" (ngSubmit)="handleSubmit()">
+    <div class="form-list-projectName">
+      <label class="form-label" for="issue-projectName">Project Name</label>
+      <input
+        class="form-control"
+        type="text"
+        id="issue-projectName"
+        formControlName="projectName"
+      />
+    </div>
     <div class="form-list-title">
       <label class="form-label" for="issue-title"> Issue title </label>
       <input

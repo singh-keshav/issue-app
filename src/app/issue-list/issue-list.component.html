@@ -6,6 +6,9 @@
       *ngFor="let issue of issues"
       (click)="showIssue(issue)"
     >
+      <div class="issue-row-field_child issue_projectName">
+        {{ issue.projectName }}
+      </div>
       <div class="issue-row-field_child issue_title">{{ issue.title }}</div>
       <div class="issue-row-field_child issue_description">
         {{ issue.description }}

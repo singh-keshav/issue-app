@@ -13,7 +13,7 @@ export class IssueListComponent {
   // public issues: Issue[] = [];
 
   deleteIssue(event: MouseEvent, issue: Issue) {
-    event.preventDefault();
+    event.stopPropagation();
     this.deleteIssueEvent.emit(issue.id);
   }
   showIssue(issue: Issue) {
