@@ -1,12 +1,70 @@
-.container {
-  display: flex;
-  background-color: red;
-}
+// .container {
+//   // display: flex;
+//   // background-color: red;
+// }
 .issue-list-container {
-  background-color: yellow;
-  flex: 1 1 70%;
+  background-color: white;
+  border-radius: 7px;
+  position: absolute;
+  height: 70%;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  padding: 20px;
 }
 .issue-form-contaner {
-  background-color: whitesmoke;
-  flex: 0 0 30%;
+  background: white;
+  width: 400px;
+  padding: 30px 40px;
+  border-radius: 5px;
+  max-width: 90vw;
+}
+
+#hide {
+  display: none;
+}
+
+.hider {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 1600px;
+  height: 2000px;
+  margin-top: 0px; /*set to a negative number 1/2 of your height*/
+  margin-left: 0px; /*set to a negative number 1/2 of your width*/
+  /*
+        z- index must be lower than pop up box
+       */
+  z-index: 99;
+  background-color: Black;
+  //for transparency
+  opacity: 0.6;
+}
+
+.popup_box {
+  position: absolute;
+  // top: 25%;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+
+  z-index: 100;
+  max-width: calc(100% - 10px);
+}
+
+.create_issue_toggle_button {
+  border: none;
+  background: none;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.create_issue_toggle_button_svg {
+  color: red;
+  &:hover {
+    transform: rotate(180deg);
+    transition-duration: 500ms;
+  }
 }

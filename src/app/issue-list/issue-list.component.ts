@@ -17,6 +17,7 @@ export class IssueListComponent {
     this.deleteIssueEvent.emit(issue.id);
   }
   showIssue(issue: Issue) {
+    console.log(issue);
     this.showDetailEvent.emit(issue);
   }
 

@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="issue-list-container">
     <app-issue-list
       [issues]="issues"
@@ -8,9 +8,52 @@
   </div>
   <div class="issue-form-contaner">
     <app-issue-form
+      class=""
       [oldIssue]="issue"
       (oldIssueUpdatedEvent)="updateIssue($event)"
       (newIssueCreatedEvent)="createIssue($event)"
     ></app-issue-form>
   </div>
+</div> -->
+
+<!-- <div class="container"></div> -->
+
+<div id="{{ modalClass }}" class="hider"></div>
+<div id="{{ modalClass }}" class="popup_box">
+  <div class="issue-form-contaner">
+    <app-issue-form
+      class=""
+      [oldIssue]="issue"
+      (oldIssueUpdatedEvent)="updateIssue($event)"
+      (newIssueCreatedEvent)="createIssue($event)"
+      (closeModalEvent)="toggleModal()"
+    ></app-issue-form>
+  </div>
+</div>
+<div id="content">
+  <div class="issue-list-container">
+    <app-issue-list
+      [issues]="issues"
+      (deleteIssueEvent)="deleteIssue($event)"
+      (showDetailEvent)="showDetailEvent($event)"
+    ></app-issue-list>
+    <button (click)="toggleModal()" class="create_issue_toggle_button">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="40"
+        height="40"
+        fill="currentColor"
+        class="bi bi-plus-circle create_issue_toggle_button_svg"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+        />
+        <path
+          d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+        />
+      </svg>
+    </button>
+  </div>
+  <br />
 </div>

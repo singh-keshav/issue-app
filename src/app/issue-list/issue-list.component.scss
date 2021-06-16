@@ -1,0 +1,34 @@
+.issuelist-container {
+}
+
+#headingIssue {
+  text-align: center;
+}
+.issuelist-ul {
+}
+.issue-row {
+  display: flex;
+  box-shadow: 0 0 2px grey;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 10px 10px;
+  align-items: center;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+}
+.issue-row-field_child {
+  flex: 1 1;
+}
+
+.issue_title {
+}
+.issue_description {
+}
+.issue_priority {
+}
+.issue_updatedOn {
+}
+.issue_createdOn {
+}

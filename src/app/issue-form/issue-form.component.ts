@@ -18,6 +18,10 @@ import { IssueService } from '../issue.service';
 export class IssueFormComponent {
   private _issue?: Issue;
 
+  @Output() oldIssueUpdatedEvent = new EventEmitter<Issue>();
+  @Output() newIssueCreatedEvent = new EventEmitter<Issue>();
+  @Output() closeModalEvent = new EventEmitter();
+
   @Input()
   public get oldIssue() {
     return this._issue;
@@ -27,13 +31,12 @@ export class IssueFormComponent {
     this._issue = value;
     if (value) {
       this.issueForm.patchValue(value);
+      console.log(value);
+      console.log(this.issueForm.value);
     } else {
       this.issueForm.reset();
     }
   }
-
-  @Output() oldIssueUpdatedEvent = new EventEmitter<Issue>();
-  @Output() newIssueCreatedEvent = new EventEmitter<Issue>();
 
   public constructor(
     private router: Router,
@@ -43,6 +46,7 @@ export class IssueFormComponent {
   ) {}
 
   public issueForm = this.formBuilder.group({
+    id: '',
     title: '',
     description: '',
     priority: 0,
@@ -53,39 +57,15 @@ export class IssueFormComponent {
   private reset() {
     this.issueForm.reset();
   }
+  public closeModal() {
+    this.closeModalEvent.emit();
+  }
 
   handleSubmit() {
     this.oldIssue
       ? this.oldIssueUpdatedEvent.emit(this.issueForm.value)
       : this.newIssueCreatedEvent.emit(this.issueForm.value);
     this.reset();
+    this.closeModal();
   }
-
-  // private params = {};
-  // public issueExist = false;
-
-  // public ngOnInit(): void {
-  //   this.activeRoute.params.subscribe((params) => {
-  //     this.params = params;
-  //     console.log(this.params);
-  //     if (params.id) {
-  //       console.log(params.id);
-  //       this.issueExist = true;
-  //       this.issueService
-  //         .getIssue(params.id)
-  //         .subscribe((issue) => this.issueForm.patchValue(issue));
-  //       console.log('inside if condition');
-  //     }
-  //   });
-  // }
-
-  // public handleSubmit() {
-  //   this.issueExist
-  //     ? this.issueService
-  //         .upDateIssue(this.issueForm.value, this.params)
-  //         .subscribe()
-  //     : this.issueService.createIssue(this.issueForm.value).subscribe();
-  //   this.reset();
-  //   this.router.navigate(['/']);
-  // }
 }
